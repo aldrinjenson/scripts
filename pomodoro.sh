@@ -16,6 +16,7 @@ do
   progressPercent=$(echo "($duration-$i)/$duration*100" | node -p)
 
   echo -n "$i"m out of "$duration" minutes left, "$progressPercent"% done $'\r' 
+  notify-send "Pomodoro: $i out of "$duration" minutes left" "$progressPercent% done. FOCUS" -t 60099
   sleep 1m
 done
 

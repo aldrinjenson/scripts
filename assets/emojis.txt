@@ -1,12 +1,14 @@
 😀 Grinning Face
 🙈 Monkey eyes closed
+🔥 Lit | fire
 😁 Beaming Face With Smiling Eyes
 😂 Face With Tears Of Joy (lol)
+🙂 Gentle Smile
 🥲 Smile in pain
 🤣 Rolling On The Floor Laughing
 😃 Grinning Face With Big Eyes
 😄 Grinning Face With Smiling Eyes
-😅 Grinning Face With Sweat
+😅 Grinning Face With Sweat | hehe
 😆 Grinning Squinting Face
 😉 Winking Face
 😊 Smiling Face With Smiling Eyes
@@ -28,7 +30,7 @@
 😐 Neutral Face
 😑 Expressionless Face
 😶 Face Without Mouth
-🙄 Face With Rolling Eyes
+🙄 Face With Rolling Eyes | bruh
 😏 Smirking Face
 😣 Persevering Face
 😥 Sad But Relieved Face
@@ -86,26 +88,6 @@
 🤭 Face With Hand Over Mouth
 🧐 Face With Monocle
 🤓 Nerd Face
-😈 Smiling Face With Horns
-👿 Angry Face With Horns
-🤡 Clown Face
-👹 Ogre
-👺 Goblin
-💀 Skull
-👻 Ghost
-👽 Alien
-👾 Alien Monster
-🤖 Robot Face
-💩 Pile Of Poo
-😺 Grinning Cat Face
-😸 Grinning Cat Face With Smiling Eyes
-😹 Cat Face With Tears Of Joy
-😻 Smiling Cat Face With Heart-Eyes
-😼 Cat Face With Wry Smile
-😽 Kissing Cat Face
-🙀 Weary Cat Face
-😿 Crying Cat Face
-😾 Pouting Cat Face
 🙈 See-No-Evil Monkey
 🙉 Hear-No-Evil Monkey
 🙊 Speak-No-Evil Monkey
