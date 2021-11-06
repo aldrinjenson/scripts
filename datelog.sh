@@ -12,7 +12,7 @@ then
   #  exit if the display is off due to timeout
 fi
 
-logFile='/home/aldrin/.logs.txt'
+logFile='/home/aldrin/.dotfiles/.logs.txt'
 today=$(echo -n "$(date | cut -d' ' -f1-4)")
 totalMinutes=$(grep "$today" $logFile | cut -d " " -f7)
 

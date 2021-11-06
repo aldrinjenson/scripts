@@ -4,5 +4,5 @@
 
 address=$(ifconfig | awk '/inet\s/ {print $2}')
 echo $address
-notify-send "$address" -t 5000
+notify-send "$address" -t 4000
 
