@@ -3,7 +3,7 @@
 # Created on 18/9/21
 # Major update on 10/10/21
 
-token=$(getEnv.sh "ghtToken"")
+token=$(getEnv.sh "ghtToken")
 clipmanCacheFile="/home/aldrin/.cache/xfce4/clipman/textsrc"
 echo $token | xclip -sel clip && notify-send "Token copied" "Github access token copied to clipboard for 2 seconds"
 sleep 2

@@ -1,10 +1,12 @@
 # !/bin/sh
 # Script to connect to AWS ec2 instance
-# Created too long ago.
+# Created sometime in july 2020..prolly
 
-instance=$(getEnv.sh "ec2Instance")
-echo "Connecting to ec2 instance: $instance\n"
-ssh -i ~/personal/ec2Secret.pem $instance || echo "Error in connecting."
+instance=$(getEnv.sh ec2Instance)
+pemFile=$(getEnv.sh ec2PemFile)
+
+echo -e "Connecting to ec2 instance: $instance\n"
+ssh -i $pemFile $instance || echo "Error in connecting."
 
 
 
