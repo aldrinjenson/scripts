@@ -1,6 +1,6 @@
 # !/bin/sh
-#Script to power off computer if time is between 12pm and 6 am or from 5pm to 5.30pm automatically
-#Created on around ~7-9-2021
+# Script to power off computer if time is between 12pm and 6 am or from 5pm to 5.30pm automatically
+# Created on around ~7-9-2021
 
 currHr=$(date +"%H")
 currMin=$(date +"%M")
