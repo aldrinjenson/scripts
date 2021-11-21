@@ -10,7 +10,7 @@ duration=${1-25} # defaut pomodoro duration = 25m unless argument passed
 breakDuration=${2-5}
 prevBrightness=$(brightnessctl get)
 # logFile="/home/aldrin/.scripts/assets/pomodoro-logs.txt"
-audioAlertFile="/home/aldrin/Music/The-Cup-of-life.mp3"
+audioAlertFile=$(getEnv.sh musicFile)
 
 notify-send "Pomodoro started for $duration minutes." "Focus tight!!"
 echo -e "Pomodoro active for $duration minutes\nFOCUS!!"

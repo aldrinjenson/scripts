@@ -4,11 +4,11 @@
 
 keyboardId=10
 masterId=3
-# get the Ids using xinput list
+# get the Ids using 'xinput list' command
 
 duration=${1-1}
 
-notify-send "Disabling keyboard" "Duration: $duration"
+notify-send "Disabling keyboard" "Duration: $duration minute"
 xinput float $keyboardId
 sleep "$duration"m
 xinput reattach $keyboardId $masterId
