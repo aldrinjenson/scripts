@@ -3,13 +3,12 @@
 # Created on  5/10/21
 # dependencies: brightnessctl, node, dunst/libnotify
 
-killall pomodoro.sh # restart timer if already running
-killall safeeyes # disable safeeyes once pomodoro is active
+pgrep pomodoro.sh && killall pomodoro.sh # restart timer if already running
+pgrep safeeyes && killall safeeyes # disable safeeyes once pomodoro is active
 
 duration=${1-25} # defaut pomodoro duration = 25m unless argument passed
 breakDuration=${2-5}
 prevBrightness=$(brightnessctl get)
-# logFile="/home/aldrin/.scripts/assets/pomodoro-logs.txt"
 audioAlertFile=$(getEnv.sh musicFile)
 
 notify-send "Pomodoro started for $duration minutes." "Focus tight!!"
@@ -41,5 +40,5 @@ brightnessctl set $prevBrightness
 
 notify-send "Break completed" "Great Job. Your body is thankful to you :)"
 safeeyes & # restart safeeyes once pomodoro is completed
-vlc $audioAlertFile # audio alert
+echo "$audioAlertFile" | xargs -I "()" vlc "()" # audio alert
 
