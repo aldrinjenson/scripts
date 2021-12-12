@@ -1,0 +1,10 @@
+! xmodmap file instructions to swap caps lock and escape
+! https://unix.stackexchange.com/questions/66775/how-to-permanently-swap-esc-and-caps-lock-in-xfce-xubuntu
+! https://unix.stackexchange.com/questions/524361/how-to-set-caps-lock-behavior-in-i3
+
+remove Lock = Caps_Lock
+keycode 0x42 = Escape
+keycode 0x9 = Caps_Lock
+add Lock = Caps_Lock
+
+
