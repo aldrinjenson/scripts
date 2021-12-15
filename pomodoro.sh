@@ -41,6 +41,6 @@ brightnessctl set $prevBrightness
 notify-send "Break completed" "Great Job. Your body is thankful to you :)"
 safeeyes & # restart safeeyes once pomodoro is completed
 notify-send $audioAlertFile
-# vlc "$audioAlertFile"
-echo "$audioAlertFile" | xargs -I "()" vlc "()" # audio alert
+vlc "$audioAlertFile"
+# echo "$audioAlertFile" | xargs -I "()" vlc "()" # audio alert
 
