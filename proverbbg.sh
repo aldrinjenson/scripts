@@ -7,11 +7,9 @@ bgImage=~/Pictures/arch-wallpaper.png
 xwallpaper --center $imagePath
 # set wallpaper first as generating image will take some time
 
-text="$(proverbQuote.sh)"
-# echo $text | magick -gravity center -background black -fill white -size 850x500 caption:@- $imagePath && echo "Bg set" || echo "Error in setting bg"
-echo $text
-
-convert $bgImage -gravity center -fill white -size 850x500 -pointsize 30 -annotate 0 "$text" $imagePath && echo "Bg set" || echo "Error in setting bg"
-
+verse="$(proverbQuote.sh)"
 # convert -size 500x200 -background white -font arial -fill black -gravity center caption:"This is a title that will be fairly long and I want it to fit nicely" -bordercolor red -border 1 test3.png
 
+convert -background none -size 800x200 -gravity center -fill white caption:"$verse" image.png
+composite image.png $bgImage -gravity center $imagePath
+rm image.png

@@ -1,4 +1,4 @@
-echo "Hi there, Aldrin"
+echo "Hi there"
 
 echo "What do you want me to do sir?"
 read instruction

@@ -7,4 +7,5 @@ alertFile=$(getEnv.sh musicFile)
 notify-send "Timer active" "Timer started for $mins minutes"
 sleep "$mins"m
 notify-send "Timer done" "$mins minutes have been completed"
+
 echo $alertFile | xargs -I "()" vlc "()" # some way to give audio alert :)
