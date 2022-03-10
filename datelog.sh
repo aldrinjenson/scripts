@@ -12,9 +12,9 @@ then
   #  exit if the display is off due to timeout
 fi
 
-logFile='/home/aldrin/.scripts/assets/.logs.txt'
+logFile='./.logs.txt'
 today=$(echo -n "$(date | cut -d' ' -f1-4)")
-totalMinutes=$(grep "$today" $logFile | cut -d " " -f7)
+totalMinutes=$(grep --text "$today" $logFile | cut -d " " -f7)
 
 if [ "$totalMinutes" =  "" ]    # if first entry of a day
 then

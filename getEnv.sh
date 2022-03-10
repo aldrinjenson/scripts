@@ -10,5 +10,5 @@ then
   exit 0
 fi
 
-grep $key $envFile | cut -d"=" -f2-
+grep ^$key $envFile | cut -d"=" -f2-
 

@@ -10,6 +10,7 @@ duration=${1-25} # defaut pomodoro duration = 25m unless argument passed
 breakDuration=${2-5}
 prevBrightness=$(brightnessctl get)
 audioAlertFile=$(getEnv.sh musicFile)
+logFile=$(getEnv.sh pomodoroLog)
 
 notify-send "Pomodoro started for $duration minutes." "Focus tight!!"
 echo -e "Pomodoro active for $duration minutes\nFOCUS!!"
@@ -18,6 +19,7 @@ for (( i = $duration; i >= 0; i-- ))
 do
   progressPercent=$(echo "($duration-$i)/$duration*100" | node -p)
   echo -n "$i"m out of "$duration" minutes left, "$progressPercent"% done $'\r' 
+  echo -n "$i" > $logFile
 
   if (( i == 0 ));
   then
@@ -34,13 +36,18 @@ notify-send "Pomodoro done!!" "Take rest Aldrin. It's necessary"
 sleep 5 # wait 5 seconds after the notify message
 
 brightnessctl set 1%
-disableKeyboard.sh $breakDuration
+# disableKeyboard.sh $breakDuration
 # sleep "$breakDuration"m
+for (( i = $breakDuration; i > 0; i-- ))
+do
+  disableKeyboard.sh 1
+  echo -n "$i" > $logFile
+done
 brightnessctl set $prevBrightness
 
 notify-send "Break completed" "Great Job. Your body is thankful to you :)"
 safeeyes & # restart safeeyes once pomodoro is completed
-notify-send $audioAlertFile
-vlc "$audioAlertFile"
-# echo "$audioAlertFile" | xargs -I "()" vlc "()" # audio alert
+
+echo -n -1 > $logFile
+echo "$audioAlertFile" | xargs -I "()" vlc "()" # showing an audio alert
 

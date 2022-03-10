@@ -7,6 +7,8 @@
 😂 Face With Tears Of Joy (lol)
 🙂 Gentle Smile
 🥲 Smile in pain
+🌝 light moon | white
+🌚 dark moon | black
 💯 100
 🤣 Rolling On The Floor Laughing
 😃 Grinning Face With Big Eyes
@@ -330,6 +332,8 @@
 🤲 Palms Up Together
 🙏 Folded Hands
 🤝 Handshake
+⏰ Alarm clock
+⌚ Watch
 👀 Eyes
 👁️ Eye
 👁️‍🗨️ Eye In Speech Bubble
