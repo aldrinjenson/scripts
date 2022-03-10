@@ -1,0 +1,8 @@
+#! /usr/bin/bash
+# Script to quickly open up one of my script files using fzf utility
+# Created on 23-1-22
+
+scriptsFolder=$(getEnv.sh scriptsFolder)
+cd $scriptsFolder
+file=$(ls | fzf )
+vim $file
