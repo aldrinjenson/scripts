@@ -1,4 +1,4 @@
-# !/bin/sh
+# !/usr/bin/bash
 # Script to start a pomodoro timer and a break. Disables keyboard and reduces screen brightness after pomodoro duration untill break is completed.
 # Created on  5/10/21
 # dependencies: brightnessctl, node, dunst/libnotify
@@ -15,11 +15,11 @@ logFile=$(getEnv.sh pomodoroLog)
 notify-send "Pomodoro started for $duration minutes." "Focus tight!!"
 echo -e "Pomodoro active for $duration minutes\nFOCUS!!"
 
-for (( i = $duration; i >= 0; i-- ))
+for (( i = duration; i > 0; i-- ))
 do
   progressPercent=$(echo "($duration-$i)/$duration*100" | node -p)
-  echo -n "$i"m out of "$duration" minutes left, "$progressPercent"% done $'\r' 
-  echo -n "$i" > $logFile
+  echo -n "$i"m out of "$duration" minutes left, "$progressPercent"% completed $'\r' 
+  echo -n "$i" > "$logFile"
 
   if (( i == 0 ));
   then
@@ -30,24 +30,23 @@ do
   fi
 done
 
-echo "\n"
-echo Pomodoro done!!\nTake a break
+printf "\n"
+printf "Pomodoro done!!\nTake a break"
 notify-send "Pomodoro done!!" "Take rest Aldrin. It's necessary"
 sleep 5 # wait 5 seconds after the notify message
 
 brightnessctl set 1%
-# disableKeyboard.sh $breakDuration
-# sleep "$breakDuration"m
-for (( i = $breakDuration; i > 0; i-- ))
+for (( i = breakDuration -1 ; i >= 0; i-- ))
 do
+  echo -n "$i" > "$logFile"
+  # sleep 1m
   disableKeyboard.sh 1
-  echo -n "$i" > $logFile
 done
-brightnessctl set $prevBrightness
 
+echo -n "$i" > "$logFile"
+brightnessctl set "$prevBrightness"
 notify-send "Break completed" "Great Job. Your body is thankful to you :)"
 safeeyes & # restart safeeyes once pomodoro is completed
 
-echo -n -1 > $logFile
 echo "$audioAlertFile" | xargs -I "()" vlc "()" # showing an audio alert
 

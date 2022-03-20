@@ -1,4 +1,4 @@
-# !/bin/sh
+#!/bin/sh
 # Script to connect to wifi in my nokia 8.1 phone hotspot
 # updated on 2/10/21
 
@@ -10,7 +10,7 @@ nmcli networking off && nmcli networking on # turning off and on to clear out cu
 
 nmcli dev wifi rescan && 
   sleep 1 && 
-  nmcli device wifi connect $nokiaId password $nokiaPswd && isConnected=1
+  nmcli device wifi connect "$nokiaId" password "$nokiaPswd" && isConnected=1
   notify-send "Connected" "Connected to Nokia 8.1" || 
   notify-send "Error in connecting to wifi"
 

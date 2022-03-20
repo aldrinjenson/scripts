@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/sh
 # Script to convert usd to inr
 # created on 29/11/21
 

@@ -3,7 +3,7 @@
 
 i3status | while :
 do
-        read line
+        read -r line
         notify-send $line
         echo "mystuff | $line" || exit 1
 done

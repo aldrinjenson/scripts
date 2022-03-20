@@ -1,6 +1,7 @@
+#!/usr/bin/sh
 echo "Hi there"
 
 echo "What do you want me to do sir?"
-read instruction
+read -r instruction
 
-bash -c $instruction
+bash -c "$instruction"

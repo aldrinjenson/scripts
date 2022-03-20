@@ -1,4 +1,4 @@
-# !/bin/sh
+#!/bin/sh
 # Script to set a proverb quote as the desktop wallpaper
 # Created on30/9/21
 

@@ -1,4 +1,4 @@
-# !/bin/sh
+#!/bin/sh
 # created on 14/8/21
 # script to select an emoji using ctrl+shift+p binding and insert it into the current windo using xdotool
 # also have the current emoji copied to clipboard

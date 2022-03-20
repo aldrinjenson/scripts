@@ -9,6 +9,6 @@ doc
 
 filePath=$1
 
-ls $filePath | dmenu -l 20 -i | xargs xdg-open
+ls "$filePath" | dmenu -l 20 -i | xargs xdg-open
 
 

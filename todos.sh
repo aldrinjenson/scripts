@@ -1,4 +1,4 @@
-# !/bin/sh
+#!/bin/sh
 # Script to set todos as wallpaper
 # Created on  11/11/21
 
