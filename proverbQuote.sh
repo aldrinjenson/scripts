@@ -6,4 +6,3 @@
 
 assetPath=/home/aldrin/.scripts/assets
 node ${assetPath}/proverb.js
-

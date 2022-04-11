@@ -6,4 +6,4 @@
 #cow=$(cat $cowFile | shuf -n 1)
 
 #kjv proverbs | shuf -n 1 | cowsay -f $cow
-kjv proverbs | shuf -n 1 
+kjv proverbs | shuf -n 1

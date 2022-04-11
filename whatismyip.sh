@@ -5,4 +5,3 @@
 address=$(ip addr | awk '/inet\s/ {print $2}')
 echo "$address"
 notify-send "$address" -t 4500
-

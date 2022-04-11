@@ -3,10 +3,8 @@
 # Simple program to generate all cowsay art
 
 fileName="/home/aldrin/.scripts/assets/cows.txt"
-list=$( cat $fileName)
+list=$(cat $fileName)
 
-for cow in $list
-do
-  cowsay -f $cow "$cow"
+for cow in $list; do
+  cowsay -f "$cow" "$cow"
 done
-

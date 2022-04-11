@@ -10,10 +10,3 @@ sleep 2
 sed -i 's/;ghp_\S*;$/;/g' $clipmanCacheFile # To not show the token in clipman
 killall xfce4-clipman && xfce4-clipman &    # Changes will be visible only if clipman is restarted
 echo "ght_token" | xclip -sel clip          # To replace the current keyboard copy buffer
-
-
-
-
-
-
-

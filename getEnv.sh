@@ -4,11 +4,9 @@
 
 key=$1
 envFile="$HOME/.scripts/assets/.env"
-if [ -z $key ]
-then
+if [ -z $key ]; then
   echo "No key specified"
   exit 0
 fi
 
 grep ^$key $envFile | cut -d"=" -f2-
-

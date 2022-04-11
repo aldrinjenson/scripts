@@ -2,12 +2,12 @@
 # script to show pomodoro timer status in polybar
 
 logFile=$(getEnv.sh pomodoroLog)
-timeLeft=$(cat $logFile)
+timeLeft=$(sed 1q $logFile)
 
 if ((timeLeft == -1))
 then
-  exit 0
+  echo ""
 else
-  echo  $timeLeft minutes left
+  echo "$timeLeft minutes left"
 fi
 

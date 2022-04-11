@@ -1,6 +1,5 @@
 #! /bin/sh
-# Created on 
+# Created on
 # Script to alias vscodium to code
 
-vscodium
-
+vscodium "$@"

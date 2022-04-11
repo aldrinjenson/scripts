@@ -7,9 +7,9 @@ didKillOnce=$(cat $statusFile)
 
 # if (( didKillOnce == 1 ))
 # then
-  # notify-send "Already postponed once. Not doing again!" "Take break now to restore skip status"
-  # echo 0 > $statusFile
-  # exit 0;
+# notify-send "Already postponed once. Not doing again!" "Take break now to restore skip status"
+# echo 0 > $statusFile
+# exit 0;
 # fi
 #
 # killall safeeyes && notify-send "Killing safe-eyes" "Take break as soon as possible!!" || notify-send "Error in killing" "Cannot kill safeeyes"

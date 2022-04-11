@@ -20,6 +20,9 @@ Based on:
 # Must be the first non-docstring/comment and enables Python 3.x-like syntax
 from __future__ import (absolute_import, division, print_function,
                         with_statement, unicode_literals)
+import notify2
+from gi.repository import GLib, Gst, UPowerGlib  # pylint: disable=E0611
+import gi
 
 __author__ = "Stephan Sokolow (deitarion/SSokolow)"
 __license__ = "MIT"
@@ -28,13 +31,12 @@ CHECK_INTERVAL = 60  # seconds
 SOUND_URI = 'file:///usr/share/sounds/freedesktop/stereo/phone-outgoing-busy.oga'
 WARNING_LEVEL = 10
 
-import gi
 gi.require_version('Gst', '1.0')
-from gi.repository import GLib, Gst, UPowerGlib  # pylint: disable=E0611
-import notify2
+
 
 class BatteryWatcher(object):
     """This represents the application as a whole"""
+
     def __init__(self, sound_uri,
                  warning_level=WARNING_LEVEL, check_interval=CHECK_INTERVAL):
         self.warn_level = warning_level
@@ -63,7 +65,7 @@ class BatteryWatcher(object):
             self.battery.connect("notify::state", self.check_battery)
         except:
             self.alert_on("Battery Monitor Exiting!",
-                "Could not bind to UPower Display Device")
+                          "Could not bind to UPower Display Device")
             raise
 
     def alert_on(self, title, message):
@@ -103,6 +105,7 @@ class BatteryWatcher(object):
             self._reset_playback_pos()
         return True  # You have to return True or it'll stop calling it
 
+
 if __name__ == '__main__':
     Gst.init(None)
     notify2.init("battery_monitor.py")
@@ -112,4 +115,3 @@ if __name__ == '__main__':
     loop = GLib.MainLoop()
     watcher.check_battery()  # Don't wait CHECK_INTERVAL for the first check
     loop.run()
-

@@ -5,11 +5,8 @@
 killall blueman-applet
 blueman-applet &
 
-device=$(bluetoothctl devices | cut -d' ' -f2- |  dmenu -i)
+device=$(bluetoothctl devices | cut -d' ' -f2- | dmenu -i)
 notify-send "Connecting" "Attempting to connect to bluetooth device" -t 2000
-macAddrs=$( echo $device | cut -d ' ' -f1 )
+macAddrs=$(echo "$device" | cut -d ' ' -f1)
 
-bluetoothctl connect $macAddrs && notify-send "Connected" "Successfully Connected to bluetooth device" || notify-send "Error" "Error in connecting to bluetooth device"
-
-
-
+bluetoothctl connect "$macAddrs" && notify-send "Connected" "Successfully Connected to bluetooth device" || notify-send "Error" "Error in connecting to bluetooth device"

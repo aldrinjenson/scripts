@@ -1,6 +1,6 @@
 #! /bin/sh
 
-cat << doc
+cat <<doc
 A custom fuzzy search for files using dmenu, made by me Lol
 doc
 
@@ -10,5 +10,3 @@ doc
 filePath=$1
 
 ls "$filePath" | dmenu -l 20 -i | xargs xdg-open
-
-
