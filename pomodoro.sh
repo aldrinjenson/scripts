@@ -10,7 +10,24 @@ duration=${1-25} # defaut pomodoro duration = 25m unless argument passed
 breakDuration=${2-5}
 prevBrightness=$(brightnessctl get)
 audioAlertFile=$(getEnv.sh musicFile)
-logFile=$(getEnv.sh pomodoroLog)
+logFile=$(getEnv.sh pomodoroLog) # to be shown as time left in polybar
+
+# function to add a daily log of total number of pomodoro minutes done
+function incrementDailyMinCount() {
+  dailyLogFile='/home/aldrin/.pomo.log'
+  today=$(echo -n "$(date | cut -d' ' -f1-4)")
+  totalMinutes=$(grep --text "$today" $dailyLogFile | cut -d " " -f7)
+  if [ "$totalMinutes" = "" ]; then # if first entry of a day
+    totalMinutes=1
+  else
+    sed -i '$ d' $dailyLogFile # delete previous entry(last line of file)
+  fi
+  today=$(echo -n "$(date | cut -d' ' -f1-4)")
+  totalMinutes=$((totalMinutes + 1))
+  h=$((totalMinutes / 60))
+  m=$((totalMinutes % 60))
+  echo $today - \( $totalMinutes mins \) $h hours $m minutes >>$dailyLogFile
+}
 
 function trapHandler() {
   echo "Exitting"
@@ -19,14 +36,16 @@ function trapHandler() {
 }
 trap trapHandler INT
 
+# pomodoro logic begin ########################3
+
 notify-send "Pomodoro started for $duration minutes." "Focus tight!!"
 echo -e "Pomodoro active for $duration minutes\nFOCUS!!"
 
 for ((i = duration; i > 0; i--)); do
+  incrementDailyMinCount 1
   progressPercent=$(echo "($duration-$i)/$duration*100" | node -p)
   echo -n "$i"m out of "$duration" minutes left, "$progressPercent"% completed $'\r'
   echo -n "$i" >"$logFile"
-
   if ((i == 0)); then
     sleep 50
     notify-send "Break coming up for $breakDuration minutes in 10 seconds." "Get ready to relax"

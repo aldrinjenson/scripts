@@ -4,3 +4,4 @@
 
 xdotool key "Escape" && setxkbmap -option caps:escape
 # xmodmap ~/.scripts/swapkeys -display :0
+# toggleCaps.sh
