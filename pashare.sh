@@ -19,4 +19,5 @@ case "$1" in
 stop)
   pactl unload-module $(pactl list | grep tcp -B1 | grep M | sed 's/[^0-9]//g') && notify-send "Audio server stopped"
   ;;
+
 esac
