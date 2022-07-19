@@ -6,7 +6,8 @@
 masterId=3
 # get the Ids using 'xinput list' command
 
-keyboardId=$(xinput list | grep "Logitech USB Keyboard  "| cut -d = -f2 | cut -f1)
+# keyboardId=$(xinput list | grep "Logitech USB Keyboard  "| cut -d = -f2 | cut -f1)
+keyboardId=5
 duration=${1-1}
 
 notify-send "Disabling keyboard $keyboardId" "Duration: $duration minute"

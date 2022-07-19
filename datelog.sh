@@ -9,7 +9,7 @@ if [[ $monitorStatus = 'Off' ]]; then
   #  exit if the display is off due to timeout
 fi
 
-logFile='./.logs.txt'
+logFile=$(getEnv.sh dateLogFile)
 today=$(echo -n "$(date | cut -d' ' -f1-4)")
 totalMinutes=$(grep --text "$today" $logFile | cut -d " " -f7)
 

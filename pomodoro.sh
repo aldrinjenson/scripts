@@ -9,7 +9,8 @@ pgrep safeeyes && killall safeeyes       # disable safeeyes once pomodoro is act
 duration=${1-25} # defaut pomodoro duration = 25m unless argument passed
 breakDuration=${2-5}
 prevBrightness=$(brightnessctl get)
-audioAlertFile=$(getEnv.sh musicFile)
+musicFolder=$(getEnv.sh "musicFolder")
+audioAlertFile=$(find $musicFolder | shuf | head -1)
 logFile=$(getEnv.sh pomodoroLog) # to be shown as time left in polybar
 
 # function to add a daily log of total number of pomodoro minutes done

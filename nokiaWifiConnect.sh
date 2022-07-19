@@ -6,7 +6,7 @@ nokiaId=$(getEnv.sh nokiaId)
 nokiaPswd=$(getEnv.sh nokiaWifiPassword)
 isConnected=0
 
-nmcli networking off && nmcli networking on # turning off and on to clear out current connection if any
+# nmcli networking off && nmcli networking on # turning off and on to clear out current connection if any
 
 nmcli dev wifi rescan && 
   sleep 1 && 

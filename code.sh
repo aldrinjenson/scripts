@@ -2,4 +2,5 @@
 # Created on
 # Script to alias vscodium to code
 
-vscodium "$@"
+# vscodium "$@"
+code-oss "$@"
