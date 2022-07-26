@@ -2,8 +2,8 @@
 # Script to set a proverb quote as the desktop wallpaper
 # Created on30/9/21
 
-imagePath=$(getEnv.sh assets)/biblebg.png
 bgImage=$(getEnv.sh wallpaperBg)
+imagePath=$(getEnv.sh bibleBg)
 xwallpaper --center $imagePath
 # set wallpaper first as generating image will take some time
 
