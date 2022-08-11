@@ -16,7 +16,7 @@ totalMinutes=$(grep --text "$today" $logFile | cut -d " " -f7)
 if [ "$totalMinutes" = "" ]; then # if first entry of a day
   totalMinutes=1
 else
-  sed -i '$ d' $logFile # delete previous entry(last line of file)
+  sed -i '$ d' '$logFile' # delete previous entry(last line of file)
 fi
 
 totalMinutes=$((totalMinutes + 1))

@@ -10,7 +10,7 @@ duration=${1-25} # defaut pomodoro duration = 25m unless argument passed
 breakDuration=${2-5}
 prevBrightness=$(brightnessctl get)
 musicFolder=$(getEnv.sh "musicFolder")
-audioAlertFile=$(find $musicFolder | shuf | head -1)
+# audioAlertFile=$(find $musicFolder | shuf | head -1)
 logFile=$(getEnv.sh pomodoroLog) # to be shown as time left in polybar
 
 # function to add a daily log of total number of pomodoro minutes done
@@ -74,4 +74,6 @@ today=$(echo -n "$(date | cut -d' ' -f1-4)")
 echo "$today"
 
 safeeyes &                                      # restart safeeyes once pomodoro is completed
+cd $musicFolder
+audioAlertFile=$(ls | shuf | head -1)
 echo "$audioAlertFile" | xargs -I "()" vlc "()" # showing an audio alert
