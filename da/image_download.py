@@ -24,7 +24,7 @@ from icrawler.builtin import GoogleImageCrawler, BingImageCrawler, BaiduImageCra
 __all__ = ['dedupe_images', 'filter_images', 'image_download', 'filter_images']
 
 
-def image_download(search_text: str, n_images: int, label: str = None, engine: str = 'bing', image_dir='dataset', apikey=None):
+def image_download(search_text: str, n_images: int, saveDir: str, label: str = None, engine: str = 'bing', image_dir='dataset', apikey=None):
     """
     Download images from bing, baidu or flickr
     usage: image_download(search_text:Path, n_images, label:str=None, engine:str='bing', image_dir='dataset', apikey=None)
@@ -39,6 +39,8 @@ def image_download(search_text: str, n_images: int, label: str = None, engine: s
     if label is None:
         label = search_text
     path = Path.cwd()/image_dir/label
+    if saveDir:
+        path = Path(saveDir)/image_dir/label
     if Path.exists(path):
         response = input(f"'{label}' exists. Overwrite? [Y/n]: ")
         if response == 'Y':
@@ -132,15 +134,17 @@ def filter_images(image_dir: Path, img_type: str = 'JPEG') -> int:
     return nons
 
 
-if len(sys.argv) <= 1:
+print(sys.argv)
+if len(sys.argv) <= 2:
     print("Enter search query and maxSize(default = 160)")
     exit()
 
 if sys.argv[-1].isnumeric():
-    searchStr = ' '.join(sys.argv[1:-1])
+    searchStr = ' '.join(sys.argv[2:-1])
     maxSize = int(sys.argv[-1])
 else:
-    searchStr = ' '.join(sys.argv[1:])
+    searchStr = ' '.join(sys.argv[2:])
     maxSize = 160
-print({'searchStr': searchStr, 'maxSize': maxSize})
-image_download(searchStr, maxSize)
+saveDirectory = sys.argv[1]
+print({'saveDirectory': saveDirectory, 'searchStr': searchStr, 'maxSize': maxSize})
+image_download(searchStr, maxSize, saveDir=saveDirectory)
