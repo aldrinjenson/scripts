@@ -1,5 +1,5 @@
 #! /bin/sh
-# Connect to wifi. 
+# Connect to wifi.
 # created on 8/7/21
 
 status=$(wifi)
@@ -9,6 +9,9 @@ then
   exit 0
 fi
 
-nmcli device connect wlan0 && notify-send "Connected " || notify-send "Error" "Error in connecting to wifi"
+wifiInterface=$(ifconfig  | grep wlan | cut -d':' -f1)
+echo $wifiInterface
+
+nmcli device connect $wifiInterface && notify-send "Connected " || notify-send "Error" "Error in connecting to wifi"
 
 
