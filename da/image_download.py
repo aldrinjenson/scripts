@@ -134,7 +134,6 @@ def filter_images(image_dir: Path, img_type: str = 'JPEG') -> int:
     return nons
 
 
-print(sys.argv)
 if len(sys.argv) <= 2:
     print("Enter search query and maxSize(default = 160)")
     exit()

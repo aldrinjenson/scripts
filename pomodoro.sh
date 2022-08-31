@@ -76,4 +76,6 @@ echo "$today"
 safeeyes &                                      # restart safeeyes once pomodoro is completed
 cd $musicFolder
 audioAlertFile=$(ls | shuf | head -1)
-echo "$audioAlertFile" | xargs -I "()" vlc "()" # showing an audio alert
+vlc "$audioAlertFile"
+# echo "$audioAlertFile" | xargs -I "()" vlc "()" # showing an audio alert
+

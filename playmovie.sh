@@ -4,7 +4,7 @@
 
 movieFolder=$(getEnv.sh movieFolder)
 # player=${1-'mpv'} # pass video player as optional argument
-player=${1-'vlc'} # pass video player as optional argument
+player=${1-'vlc --fullscreen'} # pass video player as optional argument
 cd $movieFolder
 
 movie=$(find . -regex '.*.\(mp4\|mkv\|avi\)' |
