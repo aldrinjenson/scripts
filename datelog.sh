@@ -10,13 +10,13 @@ if [[ $monitorStatus = 'Off' ]]; then
 fi
 
 logFile=$(getEnv.sh dateLogFile)
-today=$(echo -n "$(date | cut -d' ' -f1-4)")
-totalMinutes=$(grep --text "$today" $logFile | cut -d " " -f7)
+# today=$(echo -n "$(date | cut -d' ' -f1-4)")
+totalMinutes=$(cat $logFile | grep "$(date | cut -d' ' -f4)"| cut -d " " -f6)
 
 if [ "$totalMinutes" = "" ]; then # if first entry of a day
   totalMinutes=1
 else
-  sed -i '$ d' '$logFile' # delete previous entry(last line of file)
+  sed -i '$ d' $logFile # delete previous entry(last line of file)
 fi
 
 totalMinutes=$((totalMinutes + 1))
