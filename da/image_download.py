@@ -3,6 +3,7 @@
 # 6/20/2019
 # Adapted from github.com/atif93/google_image_downloader
 # Adapted from github.com/cwerner/fastclass.git
+# modified by Aldrin
 ###
 
 # Install these modules before fastai to avoid clobbering pillow
@@ -18,6 +19,7 @@ import mimetypes
 import hashlib
 import magic
 import icrawler
+import time
 from icrawler.builtin import GoogleImageCrawler, BingImageCrawler, BaiduImageCrawler, FlickrImageCrawler
 # GoogleImageCrawler is not working from icrawler
 
@@ -146,4 +148,6 @@ else:
     maxSize = 160
 saveDirectory = sys.argv[1]
 print({'saveDirectory': saveDirectory, 'searchStr': searchStr, 'maxSize': maxSize})
+print("Going to start download in 3 seconds..")
+time.sleep(3)
 image_download(searchStr, maxSize, saveDir=saveDirectory)

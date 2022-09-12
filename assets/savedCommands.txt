@@ -1,0 +1,8 @@
+ls
+pwd
+history
+-S
+ls -S
+ls -lah
+npx create-next-app@latest
+setxkbmap -layout us -variant ,qwerty
