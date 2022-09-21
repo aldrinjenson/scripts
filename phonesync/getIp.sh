@@ -4,3 +4,4 @@
 
 serverIp=$(getEnv.sh serverIp)
 curl $serverIp 
+

@@ -11,7 +11,7 @@ xwallpaper --center $imagePath
 verse="Proverbs 22:4 True Humility and Fear of the Lord, lead to Riches, Honor and Long Life"
 # convert -size 500x200 -background white -font arial -fill black -gravity center caption:"This is a title that will be fairly long and I want it to fit nicely" -bordercolor red -border 1 test3.png
 
-convert -background none -size 920x400 -gravity center -fill black caption:"$verse" image.png
+convert -background none -size 920x400 -gravity center -fill white caption:"$verse" image.png
 # convert -background none -size 800x200 -gravity center -fill black caption:"$verse" image.png
 composite image.png $bgImage -gravity center $imagePath
 rm image.png
