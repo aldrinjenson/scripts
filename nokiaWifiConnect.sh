@@ -7,11 +7,12 @@ nokiaPswd=$(getEnv.sh nokiaWifiPassword)
 isConnected=0
 
 # nmcli networking off && nmcli networking on # turning off and on to clear out current connection if any
+echo "fixing wifi stuff ${nokiaId}" >> /home/aldrin/fixwifi.txt
 
 nmcli dev wifi rescan &&
   sleep 1 &&
   nmcli device wifi connect "$nokiaId" password "$nokiaPswd" &&  notify-send "Connected" "Connected to Nokia 8.1" ||
-  notify-send "Error in connecting to wifi"
+  (echo "ERRORROR" >> /home/aldrin/fixWifi.txt && notify-send "Error in connecting to wifi")
 
 # if (($isConnected == 0))
 # then

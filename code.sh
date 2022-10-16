@@ -3,4 +3,4 @@
 # Script to alias vscodium to code
 
 # vscodium "$@"
-code-oss "$@"
+code-oss "$@" --enable-proposed-api ms-toolsai.jupyter

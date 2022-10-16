@@ -4,5 +4,5 @@
 
 scriptsPath=$(getEnv.sh scriptsPath)
 cd $scriptsPath
-find "." -type f -printf '%P\n' | fzf | xargs lvim
+find "." -type f -not -path '*/node_modules/*' -printf '%P\n' | grep -v .git | fzf | xargs lvim
 

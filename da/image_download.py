@@ -138,7 +138,7 @@ def filter_images(image_dir: Path, img_type: str = 'JPEG') -> int:
 
 if len(sys.argv) <= 2:
     print("Enter search query and maxSize(default = 160)")
-    exit()
+    exit(1)
 
 if sys.argv[-1].isnumeric():
     searchStr = ' '.join(sys.argv[2:-1])

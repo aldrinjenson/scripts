@@ -3,7 +3,7 @@
 # Created on 6/11/21
 
 key=$1
-envFile="$HOME/.scripts/assets/.env"
+envFile="/home/aldrin/.scripts/assets/.env"
 if [ -z $key ]; then
   echo "No key specified"
   exit 0

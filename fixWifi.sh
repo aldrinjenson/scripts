@@ -3,8 +3,9 @@
 # script to remove wifi module and add it back again
 
 sudo rmmod iwlmvm iwlmei iwlwifi
-modprobe iwlmei
 modprobe iwlmvm
+modprobe iwlmei
 modprobe iwlwifi
 
+source /home/aldrin/.profile
 nokiaWifiConnect.sh
