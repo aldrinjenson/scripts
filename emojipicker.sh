@@ -3,7 +3,8 @@
 # script to select an emoji using ctrl+shift+p binding and insert it into the current windo using xdotool
 # also have the current emoji copied to clipboard
 
-emojiFile='/home/aldrin/.scripts/assets/emojis.txt'
+# emojiFile='/home/aldrin/.scripts/assets/emojis.txt'
+emojiFile='/home/aldrin/.scripts/assets/allEmojis.txt'
 # selected=$(cat $emojiFile | rofi -dmenu -i -matching prefix -l 20)
 selected=$(cat $emojiFile | rofi -dmenu -i -l 20)
 

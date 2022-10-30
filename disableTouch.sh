@@ -2,7 +2,8 @@
 # Script to disable keyboard for 1 minute or for the passed duration
 # Created on 20/11/21
 
-clientId=15
+clientId=11
+# clientId=15
 masterId=2
 # get the Ids using 'xinput list' command
 
