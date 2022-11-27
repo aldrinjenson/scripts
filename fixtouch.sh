@@ -11,7 +11,6 @@ duration=${1-1}
 
 notify-send "Disabling Touchscreen $clientId" "Duration: $duration minute"
 xinput disable $clientId || notify-send "Error in disabling keyboard"
-sleep 1
-# xinput reattach $clientId $masterId
-# xinput enable $clientId || notify-send "Error in disabling keyboard"
+sleep 0.5
+xinput reattach $clientId $masterId
 

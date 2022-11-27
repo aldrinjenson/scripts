@@ -1,3 +1,6 @@
+😮  Woah | Whoa | OH
+🙂  Gentle Smile
+🤞 	Crossed fingers 	U+1F91E
 🙂 	Slightly smiling face 	U+1F642
 😀 	Smiling face 	U+1F600
 😃 	Smiling face with big eyes 	U+1F603
@@ -6,10 +9,10 @@
 😅 	Smiling face with tears 	U+1F605
 😆 	Grinning face 	U+1F606
 🤣 	Rolling on the floor laughing 	U+1F923
-😂 	Lauging with tears 	U+1F602
+😂 	Lol | Lauging with tears 	U+1F602
 🙃 	Upside down face 	U+1F643
 😉 	Winking face 	U+1F609
-😊 	Smiling face with smiling eyes 	U+1F60A
+😊 	Uvu | Smiling face with smiling eyes 	U+1F60A
 😇 	Smiling face with halo 	U+1F607
 😎 	Smiling face with sunglasses 	U+1F60E
 🤓 	Nerdy face 	U+1F913
@@ -23,7 +26,7 @@
 ☺ 	Smiling face 	U+263A
 😚 	Kissing face with closed eyes 	U+1F61A
 😙 	Kissng face with smiling eyes 	U+1F619
-🥲 	Smiling face with tears 	U+1F972	
+🥲 	Smile in Pain | Smiling face with tears 	U+1F972	
 😋 	Yummy face 	U+1F60B
 😛 	Face with tongue 	U+1F61B
 😜 	WInking face with tongue 	U+1F61C
@@ -110,7 +113,7 @@
 🙀 	Weary cat 	U+1F640
 😿 	Crying cat 	U+1F63F
 😾 	Pouting cat 	U+1F63E	
-🙈 	See no evil monkey 	U+1F648
+🙈 	Monkey eyes closed | See no evil monkey 	U+1F648
 🙉 	Hear no evil monkey 	U+1F649
 🙊 	Speak no evil monkey 	U+1F64A	
 💋 	Kiss 	U+1F48B
@@ -159,7 +162,6 @@
 🤌 	Pinched fingers 	U+1F90C
 🤏 	Pinched hand 	U+1F90F
 ✌ 	Victory hand 	U+270C
-🤞 	Crossed fingers 	U+1F91E
 🤟 	Love you 	U+1F91F
 🤘 	Horn sign 	U+1F918
 🤙 	Call me hand 	U+1F919
@@ -177,7 +179,7 @@
 🤛 	Left facing fist 	U+1F91B
 🤜 	Right facing fist 	U+1F91C
 👏 	Clapping hands 	U+1F44F
-🙌 	Raised hands 	U+1F64C
+🙌 	Bless | Raised hands 	U+1F64C
 👐 	OPen hands 	U+1F450
 🤲 	Palms together hands 	U+1F932
 🤝 	Handshake 	U+1F91D
@@ -911,6 +913,7 @@
 🌞 	Sun with face 	U+1F31E
 🪐 	Ringed planet 	U+1FA90
 ⭐ 	Star 	U+2B50
+✨ Stars | glow | hope
 🌟 	Glowing star 	U+1F31F
 🌠 	Shooting star 	U+1F320
 🌌 	Milky way 	U+1F30C
