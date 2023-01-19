@@ -3,8 +3,8 @@
 # Created on 22/10/21
 
 musicFolder=$(getEnv.sh musicFolder)
-# player=${1-'mpv'}   # pass music player as optional argument
-player=${1-'rhythmbox'}   # pass music player as optional argument
+player=${1-'vlc --fullscreen'}   # pass music player as optional argument
+# player=${1-'rhythmbox'}   # pass music player as optional argument
 cd "$musicFolder" || exit
 
 musicRegex=".*.\(mp3\|ogg\|opus\|webm\|m4a\)"

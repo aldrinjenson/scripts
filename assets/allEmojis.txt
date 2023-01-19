@@ -1,3 +1,6 @@
+🙌 	Bless | Hands(Open) | Raised hands 	U+1F64C
+💯  100 | great
+❤️   Heart (red)
 😮  Woah | Whoa | OH
 🙂  Gentle Smile
 🤞 	Crossed fingers 	U+1F91E
@@ -179,7 +182,6 @@
 🤛 	Left facing fist 	U+1F91B
 🤜 	Right facing fist 	U+1F91C
 👏 	Clapping hands 	U+1F44F
-🙌 	Bless | Raised hands 	U+1F64C
 👐 	OPen hands 	U+1F450
 🤲 	Palms together hands 	U+1F932
 🤝 	Handshake 	U+1F91D
@@ -751,8 +753,8 @@
 🍸 	Cocktail glass 	U+1F378
 🍹 	Tropical drink 	U+1F379
 🍺 	Beer mug 	U+1F37A
-🍻 	Clinking beer mug 	U+1F37B
-🥂 	Clinking glasses 	U+1F942
+🍻 	cheers | Clinking beer mug 	U+1F37B
+🥂 	cheers | Clinking glasses 	U+1F942
 🥃 	Tumbler glass 	U+1F943
 🥤 	Cup with strawberry 	U+1F964
 🧋 	Bubble tea 	U+1F9CB

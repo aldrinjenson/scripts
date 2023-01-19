@@ -3,7 +3,9 @@
 # Created on 11/9/21
 # This same script is also linked to .config/nnn/plugins to be applicable in nnn as well. Keep this in mind when renaming.
 
-dragon-drop -x -a "$@"
+echo $@
+# dragon-drop -x -a "$@"
+dragon-drop -x -a "$1"
 # dragon -x -a "$1"
 
 
