@@ -76,6 +76,6 @@ safeeyes &                                      # restart safeeyes once pomodoro
 musicFolder=$(getEnv.sh "musicFolder")
 cd $musicFolder
 audioAlertFile=$(ls | grep -v *.txt | shuf | head -1)
-rhythmbox "$audioAlertFile"
+vlc --fullscreen "$audioAlertFile"
 # echo "$audioAlertFile" | xargs -I "()" vlc "()" # showing an audio alert
 
