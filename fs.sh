@@ -4,5 +4,14 @@
 
 scriptsPath=$(getEnv.sh scriptsPath)
 cd $scriptsPath
-find "." -type f -not -path '*/node_modules/*' -printf '%P\n' | grep -v .git | fzf | xargs lvim
+
+chosenScript=$(find "." -type f -not -path '*/node_modules/*' -printf '%P\n' | grep -v .git | fzf )
+
+if [ -z "$chosenScript" ]; then
+  echo "No script selected; exiting";
+  exit 0
+fi
+
+lvim $chosenScript
+# xargs lvim
 

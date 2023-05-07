@@ -7,7 +7,7 @@ nokiaPswd=$(getEnv.sh nokiaWifiPassword)
 isConnected=0
 
 # nmcli networking off && nmcli networking on # turning off and on to clear out current connection if any
-echo "fixing wifi stuff ${nokiaId}" >> /home/aldrin/fixwifi.txt
+# echo "fixing wifi stuff ${nokiaId} at $(date)" >> /home/aldrin/fixwifi2.txt
 
 nmcli dev wifi rescan &&
   sleep 1 &&

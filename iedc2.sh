@@ -8,7 +8,7 @@
 # echo -e "Connecting to ec2 instance: $instance\n"
 # ssh -i $pemFile $instance || echo "Error in connecting."
 
-ssh -i "~/code/work/iedc-server.pem" admin@ec2-3-110-86-241.ap-south-1.compute.amazonaws.com
+ssh -i "~/code/work/iedc-server.pem" admin@ec2-13-235-2-71.ap-south-1.compute.amazonaws.com
 
 
 
