@@ -3,6 +3,6 @@
 # Created on 15-5-22
 
 # those file binaries to not be shown in dMenu. Append to this list, other files to be ignored as well
-excludeFiles="objcopy\|irexec\|obex\|firebase\|chromedriver\|smbspool\|whatis$"
+excludeFiles="aafire\|objcopy\|irexec\|obex\|firebase\|chromedriver\|smbspool\|whatis$"
 
 dmenu_path | grep -v $excludeFiles | dmenu "$@" -i | ${SHELL:-"/bin/sh"} &
