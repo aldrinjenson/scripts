@@ -18,7 +18,6 @@ fi
 echo "KeyboardID = $keyboardId"
 
 notify-send "Disabling keyboard $keyboardId" "Duration: $duration minute"
-xinput float $keyboardId || notify-send "Error in disabling keyboard"
+xinput float "$keyboardId" || notify-send "Error in disabling keyboard"
 sleep "$duration"m
-xinput reattach $keyboardId $masterId
-
+xinput reattach "$keyboardId" "$masterId"
