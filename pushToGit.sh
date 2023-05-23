@@ -3,6 +3,7 @@
 # Created on 17/12/22
 
 sleep 5m
+notify-send=/usr/bin/notify-send
 
 cd ~/.dotfiles
 (git add -A && git commit -m "Updates") && notify-send "Committing to git" || (echo "Nothing left to commit." )
