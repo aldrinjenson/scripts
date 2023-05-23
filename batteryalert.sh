@@ -5,7 +5,7 @@
 # Get the current battery level
 battery_level=$(cat /sys/class/power_supply/BAT0/capacity)
 
-# notify-send "battery status = " $battery_level
+/usr/bin/notify-send "battery level = $battery_level"
 
 # Check if the battery is charging
 charging=$(cat /sys/class/power_supply/BAT0/status)
