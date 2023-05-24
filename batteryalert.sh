@@ -5,7 +5,7 @@
 # Get the current battery level
 battery_level=$(cat /sys/class/power_supply/BAT0/capacity)
 
-/usr/bin/notify-send "battery level = $battery_level"
+# notify-send "battery level = $battery_level"
 
 # Check if the battery is charging
 charging=$(cat /sys/class/power_supply/BAT0/status)
@@ -22,7 +22,7 @@ if [ "$battery_level" -eq 100 ]; then
   exit 0
 fi
 
-if [ "$battery_level" -lt 4 ]; then
+if [ "$battery_level" -lt 3 ]; then
   notify-send -u critical "Low battery! Shutting down in 10 seconds"
   sleep 10 
   poweroff
