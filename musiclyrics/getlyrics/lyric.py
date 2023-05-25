@@ -2,23 +2,36 @@
 import time
 import dbus
 import json
-import logging
+import os
 
 # Constants
 DBUS_SERVICE_NAME = 'org.mpris.MediaPlayer2.rhythmbox'
 DBUS_OBJECT_PATH = '/org/mpris/MediaPlayer2'
 LYRICS_FILE_EXTENSION = '.json'
 
-# Configure logging
-logging.basicConfig(filename='lyrics.log', level=logging.INFO, format='%(asctime)s - %(message)s')
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(message)s',
-    handlers=[
-        logging.FileHandler('lyrics.log'),
-        logging.StreamHandler()
-    ]
-)
+
+class CustomLogger:
+    def __init__(self, log_file):
+        self.log_file = log_file
+
+    def info(self, message):
+        timestamp = time.strftime('%Y-%m-%d %H:%M:%S')
+        log_message = f'{timestamp} - INFO - {message}'
+        if 'Song has ended' in log_message:
+            return
+
+        print(log_message)
+        with open(self.log_file, 'a') as file:
+            file.write(log_message + '\n')
+
+    def error(self, message):
+        timestamp = time.strftime('%Y-%m-%d %H:%M:%S')
+        log_message = f'{timestamp} - ERROR - {message}'
+        print(log_message)
+        with open(self.log_file, 'a') as file:
+            file.write(log_message + '\n')
+
+logging = CustomLogger('logs.log')
 
 def connect_to_dbus():
     """Connect to the Rhythmbox D-Bus service and return the interface."""
@@ -35,10 +48,25 @@ def get_position(interface):
     position = interface.Get('org.mpris.MediaPlayer2.Player', 'Position')
     return int(position / 1000000)
 
-def parse_lyrics_file(filename):
+def parse_lyrics_file(song_name_without_ext):
     """Parse the lyrics JSON file and return the segments."""
-    with open(filename, 'r') as file:
-        lyrics_json = file.read()
+    lyrics_json = {}
+    jsonPath = "/home/aldrin/Music/json/"
+    try:
+        filename = jsonPath + song_name_without_ext
+        with open(filename, 'r') as file:
+            lyrics_json = file.read()
+    except:
+        song_name_without_ext = song_name_without_ext.replace('.webm','').strip()
+        allFiles = os.listdir(jsonPath)
+
+        matching_files = [file for file in allFiles if song_name_without_ext in file]
+
+        if matching_files:
+            currentSongPath = os.path.join(jsonPath, matching_files[0])
+        with open(currentSongPath, 'r') as file:
+            lyrics_json = file.read()
+
     lyrics_data = json.loads(lyrics_json)
     return lyrics_data['segments']
 
@@ -49,41 +77,32 @@ def display_lyrics(segment):
     print('\x1b[2K',lyric_line, end='\r')
 
 def main():
-    # Connect to D-Bus
     try:
         interface = connect_to_dbus()
     except dbus.exceptions.DBusException:
         logging.error('Failed to connect to the D-Bus service.')
         return
 
-    # Get the song name from the metadata
     metadata = get_metadata(interface)
-    song_name = metadata['xesam:title']
+    orig_song_name = metadata['xesam:title']
+    song_name_without_ext = orig_song_name.rsplit('.',1)[0]
 
-    song_ext = song_name.rsplit('.',1)[-1]
-    filename = song_name.replace('.'+song_ext, LYRICS_FILE_EXTENSION)
-    filename = filename.replace('.webm', '')
-
-
-    # Construct the filename based on the song name
-
-    # Read and parse the lyrics file
     try:
-        segments = parse_lyrics_file(filename)
+        segments = parse_lyrics_file(song_name_without_ext)
     except FileNotFoundError:
-        logging.error(f'Lyrics file not found: {filename}')
+        logging.error(f'Lyrics file not found: {orig_song_name}')
         return
     except json.JSONDecodeError:
-        logging.error(f'Failed to parse lyrics file: {filename}')
+        logging.error(f'Failed to parse lyrics file: {orig_song_name}')
         return
 
-    # Loop until the song ends
+    print(f"Playing lyrics for {song_name_without_ext}\n")
     prev_text = ""
     while True:
         position_sec = get_position(interface)
         metadata = get_metadata(interface)
         curr_song_name = metadata['xesam:title']
-        if curr_song_name != song_name:
+        if curr_song_name != orig_song_name:
             print("song changed, switching..")
             break
 
