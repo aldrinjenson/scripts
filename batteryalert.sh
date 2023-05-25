@@ -17,7 +17,7 @@ if [[ $charging = "Charging" ]]; then
 fi
 
 
-if [ "$battery_level" -eq 100 ]; then
+if [ "$battery_level" -eq 100 && "$charging" -ne "Charging"]; then
   notify-send -u critical "Battery at 100%. may want to unplug charger?"
   exit 0
 fi
@@ -31,6 +31,7 @@ fi
 
 if [ "$battery_level" -lt 10 ]; then
   notify-send -u critical "Low battery! Plug in your charger right now!!."
+  playrandomsong.sh
   exit 0
 fi
 

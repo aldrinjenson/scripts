@@ -73,10 +73,11 @@ echo "$today"
 
 safeeyes &                                      # restart safeeyes once pomodoro is completed
 
-musicFolder=$(getEnv.sh "musicFolder")
-cd $musicFolder
-audioAlertFile=$(ls | grep -v *.txt | shuf | head -1)
-vlc --fullscreen "$audioAlertFile" &
+# musicFolder=$(getEnv.sh "musicFolder")
+# cd $musicFolder
+# audioAlertFile=$(ls | grep -v *.txt | shuf | head -1)
+# vlc --fullscreen "$audioAlertFile" &
+playrandomsong.sh
 # rhythmbox "$audioAlertFile" &
 # xfce4-terminal -x lyrics
 # echo "$audioAlertFile" | xargs -I "()" vlc "()" # showing an audio alert
