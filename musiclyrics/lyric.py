@@ -64,8 +64,12 @@ def parse_lyrics_file(song_name_without_ext):
 
         if matching_files:
             currentSongPath = os.path.join(jsonPath, matching_files[0])
-        with open(currentSongPath, 'r') as file:
-            lyrics_json = file.read()
+            with open(currentSongPath, 'r') as file:
+                lyrics_json = file.read()
+        else:
+            print("Lyrics does not exist")
+            os.system('lyrics')
+            return {}
 
     lyrics_data = json.loads(lyrics_json)
     return lyrics_data['segments']
@@ -87,40 +91,39 @@ def main():
     orig_song_name = metadata['xesam:title']
     song_name_without_ext = orig_song_name.rsplit('.',1)[0]
 
+    print(f"\rPlaying lyrics for {song_name_without_ext}\n")
     try:
         segments = parse_lyrics_file(song_name_without_ext)
     except FileNotFoundError:
-        logging.error(f'Lyrics file not found: {orig_song_name}')
+        logging.error(f'Lyrics file not found: {orig_song_name}\nTry getting it with whisper')
         return
     except json.JSONDecodeError:
         logging.error(f'Failed to parse lyrics file: {orig_song_name}')
         return
 
-    print(f"Playing lyrics for {song_name_without_ext}\n")
     prev_text = ""
     while True:
-        position_sec = get_position(interface)
-        metadata = get_metadata(interface)
-        curr_song_name = metadata['xesam:title']
-        if curr_song_name != orig_song_name:
-            print("song changed, switching..")
-            break
+        try:
+            position_sec = get_position(interface)
+            metadata = get_metadata(interface)
+            curr_song_name = metadata['xesam:title']
+            if curr_song_name != orig_song_name:
+                # song ended
+                os.system('clear')
+                break
 
-        # Check the current timestamp and display corresponding lyrics
-        for segment in segments:
-            if segment['start'] - 1 <= position_sec <= segment['end']:
-                curr_text = segment['text']
-                if prev_text != curr_text:
-                    display_lyrics(segment)
-                    prev_text = curr_text
+            # Check the current timestamp and display corresponding lyrics
+            for segment in segments:
+                if segment['start'] - 0.5 <= position_sec <= segment['end']:
+                    curr_text = segment['text']
+                    if prev_text != curr_text:
+                        display_lyrics(segment)
+                        prev_text = curr_text
 
-        # Check if the song has ended
-        if position_sec >= segments[-1]['end']:
-            logging.info('Song has ended.')
-            break
-
-        # Wait for 1 second
-        time.sleep(1)
+            # Wait for 1 second
+            time.sleep(1)
+        except:
+            time.sleep(0.5)
     time.sleep(1)
     main() # trying again for the next song
 
