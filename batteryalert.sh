@@ -3,12 +3,12 @@
 # created on 13-5-2023
 
 # Get the current battery level
-battery_level=$(cat /sys/class/power_supply/BAT1/capacity)
+battery_level=$(cat /sys/class/power_supply/BAT0/capacity)
 
 # notify-send "battery level = $battery_level"
 
 # Check if the battery is charging
-charging=$(cat /sys/class/power_supply/BAT0/status)
+charging=$(cat /sys/class/power_supply/BAT1/status)
 
 
 if [[ $charging = "Charging" ]]; then
