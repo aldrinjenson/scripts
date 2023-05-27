@@ -4,11 +4,16 @@
 
 # Get the current battery level
 battery_level=$(cat /sys/class/power_supply/BAT0/capacity)
+b0_level=$(cat /sys/class/power_supply/BAT0/capacity)
+b1_level=$(cat /sys/class/power_supply/BAT1/capacity)
+
+total_bat_level=$(( b0_level + b1_level ))
+total_bat_level=$( echo 'total_bat_level / 200' | bc )
 
 # notify-send "battery level = $battery_level"
 
 # Check if the battery is charging
-charging=$(cat /sys/class/power_supply/BAT1/status)
+charging=$(cat /sys/class/power_supply/BAT0/status)
 
 
 if [[ $charging = "Charging" ]]; then
