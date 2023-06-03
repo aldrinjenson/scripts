@@ -8,6 +8,7 @@ b1_level=$(cat /sys/class/power_supply/BAT1/capacity || echo 0)
 
 battery_level=$(( ( b0_level + b1_level ) / 2 ))
 charging=$(cat /sys/class/power_supply/BAT0/status || cat /sys/class/power_supply/BAT1/status)
+echo $battery_level
 
 if [[ $charging = "Charging" ]]; then
   echo "charging fine. exiting.."
@@ -15,9 +16,10 @@ if [[ $charging = "Charging" ]]; then
 fi
 
 
-if [[ "$battery_level" -eq 100 && "$charging" -ne "Charging" ]] ; then
+if [[ "$battery_level" -eq 100 && "$charging" != "Charging" ]] ; then
   notify-send -u critical "Battery at 100%. may want to unplug charger?"
   exit 0
+fi
 
 if [[ "$battery_level" -lt 3 ]]; then
   notify-send -u critical "Low battery! Shutting down in 10 seconds"
@@ -39,4 +41,5 @@ fi
 
 if [ "$battery_level" -lt 35 ]; then
   notify-send "Battery at 35%" "Would be a good idea to charge you laptop now:)"
+  exit 0
 fi
