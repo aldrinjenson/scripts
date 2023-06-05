@@ -2,7 +2,7 @@
 # script to compress pdf files using ghostscript
 # Created on 06/05/2023
 
-filename="$1"
+filename="$@"
 ls -ll $filename
 echo "Input file = $filename"
 unalias gs && echo "Unaliased gs" || "no alias set for gs"
