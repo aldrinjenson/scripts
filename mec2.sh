@@ -6,4 +6,5 @@ url=$(getEnv.sh mecGpuUrl)
 username=$(getEnv.sh mecGpuUsername)
 pwd=$(getEnv.sh mecGpuPwd)
 
-ssh -X -o ServerAliveInterval=600 "$username"@"$url" 
+# ssh -X -o ServerAliveInterval=600 "$username"@"$url" 
+ssh -X "$username"@"$url" 
