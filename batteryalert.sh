@@ -16,8 +16,8 @@ if [[ $charging = "Charging" ]]; then
 fi
 
 
-if [[ "$battery_level" -eq 100 && "$charging" != "Charging" ]] ; then
-  notify-send -u critical "Battery at 100%. may want to unplug charger?"
+if [[ "$battery_level" -eq 85 && "$charging" != "Charging" ]] ; then
+  notify-send -u critical "Battery at 85%. may want to unplug charger?"
   exit 0
 fi
 
@@ -39,7 +39,7 @@ if [ "$battery_level" -lt 15 ]; then
   exit 0
 fi
 
-if [ "$battery_level" -lt 30 ]; then
+if [ "$battery_level" -lt 20 ]; then
   notify-send "Battery at 30%" "Would be a good idea to charge you laptop now:)"
   exit 0
 fi
