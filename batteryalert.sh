@@ -16,7 +16,7 @@ if [[ $charging = "Charging" ]]; then
 fi
 
 
-if [[ "$battery_level" -eq 85 && "$charging" != "Charging" ]] ; then
+if [[ "$battery_level" -eq 85 && "$charging" == "Charging" ]] ; then
   notify-send -u critical "Battery at 85%. may want to unplug charger?"
   exit 0
 fi
