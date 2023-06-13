@@ -114,6 +114,7 @@ def main():
 
             # Check the current timestamp and display corresponding lyrics
             for segment in segments:
+                print(type(position_sec))
                 if segment['start'] - 0.5 <= position_sec <= segment['end']:
                     curr_text = segment['text']
                     if prev_text != curr_text:
