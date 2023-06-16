@@ -13,7 +13,7 @@ echo $battery_level
 echo $battery_level $charging
 
 if [[ "$battery_level" -gt 85 && "$charging" == "true" ]] ; then
-  notify-send -u normal "Battery at ${battery_level}%." "Would be a good idea to unplug charger?"
+  notify-send -u normal "Battery at $battery_level%." "Would be a good idea to unplug charger?"
   exit 0
 fi
 
@@ -42,6 +42,6 @@ if [ "$battery_level" -lt 15 ]; then
 fi
 
 if [ "$battery_level" -lt 30 ]; then
-  notify-send "Battery at 30%" "Would be a good idea to charge you laptop now:)"
+  notify-send "Battery at $battery_level%" "Would be a good idea to charge you laptop now:)"
   exit 0
 fi
