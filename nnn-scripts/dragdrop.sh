@@ -32,25 +32,29 @@ add_file ()
 
 use_all ()
 {
-    printf "mark --all (a) [default=none]: "
-    read -r resp
-    if [ "$resp" = "a" ]; then
-        all="--all"
-    else
-        all=""
-    fi
+    all="--all"
+    return ;
+    # printf "mark --all (a) [default=none]: "
+    # read -r resp
+    # if [ "$resp" = "a" ]; then
+    #     all="--all"
+    # else
+    #     all=""
+    # fi
 }
 
-if [ -s "$selection" ]; then
-    printf "Drop file (r). Drag selection (s), Drag current directory (d) or drag current file (f) [default=f]: "
-    read -r resp
-else
-    printf "Drop file (r). Drag current directory (d) or drag current file (f) [default=f]: "
-    read -r resp
-    if [ "$resp" = "s" ]; then
-        resp=f
-    fi
-fi
+# if [ -s "$selection" ]; then
+#     printf "Drop file (r). Drag selection (s), Drag current directory (d) or drag current file (f) [default=f]: "
+#     read -r resp
+# else
+#     printf "Drop file (r). Drag current directory (d) or drag current file (f) [default=f]: "
+#     read -r resp
+#     if [ "$resp" = "s" ]; then
+#         resp=f
+#     fi
+# fi
+
+resp=f
 
 if [ "$resp" = "s" ]; then
     use_all
