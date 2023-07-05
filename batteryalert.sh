@@ -8,9 +8,8 @@ b1_level=$(cat /sys/class/power_supply/BAT1/capacity || echo 0) # to account for
 
 battery_level=$(( ( b0_level + b1_level ) / 2 ))
 charging=$(cat /sys/class/power_supply/BAT0/status /sys/class/power_supply/BAT1/status | grep -q "Charging" && echo true || echo false)
-echo $battery_level
 
-echo $battery_level $charging
+echo "$battery_level" "$charging"
 
 if [[ "$battery_level" -gt 85 && "$charging" == "true" ]] ; then
   notify-send -u normal "Battery at $battery_level%." "Would be a good idea to unplug charger?"

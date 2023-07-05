@@ -1,0 +1,6 @@
+brightnessctl
+dmenu
+rofi
+safeeyes
+fzf
+

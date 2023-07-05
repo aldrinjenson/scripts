@@ -8,6 +8,6 @@ sleep "$mins"m
 notify-send "Timer done" "$mins minutes have been completed"
 
 musicFolder=$(getEnv.sh "musicFolder")
-cd $musicFolder
+cd "$musicFolder" || notify-send "Error in finding folder"
 audioAlertFile=$(ls | shuf | head -1)
 vlc "$audioAlertFile"
