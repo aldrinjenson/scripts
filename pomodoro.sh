@@ -11,6 +11,9 @@ breakDuration=${2-5}
 prevBrightness=$(brightnessctl get)
 logFile=$(getEnv.sh pomodoroLog) # to be shown as time left in polybar
 
+
+
+
 # function to add a daily log of total number of pomodoro minutes done
 function incrementDailyMinCount() {
   dailyLogFile='/home/aldrin/.pomo.log'
@@ -25,7 +28,22 @@ function incrementDailyMinCount() {
   totalMinutes=$((totalMinutes + 1))
   h=$((totalMinutes / 60))
   m=$((totalMinutes % 60))
-  echo $today - \( $totalMinutes mins \) $h hours $m minutes >>$dailyLogFile
+  
+  timeString="$today - \( $totalMinutes mins \) $h hours $m minutes"
+
+  case $@ in 
+  w)
+    echo 'w'
+    ;;
+  p)
+    echo 'p'
+    ;;
+  *)
+    timeString+="W"
+  esac
+
+  echo $timeString >>$dailyLogFile
+
 }
 
 function trapHandler() {
