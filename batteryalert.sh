@@ -30,13 +30,13 @@ if [[ "$battery_level" -lt 3 ]]; then
 fi
 
 if [ "$battery_level" -lt 10 ]; then
-  notify-send -u critical "Low battery! Plug in your charger right now!!."
+  notify-send -u critical "Low battery! $battery_level% Plug in your charger right now!!."
   playrandomsong.sh
   exit 0
 fi
 
 if [ "$battery_level" -lt 15 ]; then
-  notify-send "Low battery! Please plug in your charger."
+  notify-send "Low battery! $battery_level% Please plug in your charger."
   exit 0
 fi
 
