@@ -10,7 +10,7 @@ cd "$musicFolder" || exit
 
 musicRegex=".*.\(mp3\|ogg\|opus\|webm\|m4a\)"
 
-song=$(find . -regex $musicRegex |
+song=$(find . -regex "$musicRegex" | shuf |
   cut -d '/' -f2- |
   dmenu -i -l 20 -p "Choose a song to play")
 
