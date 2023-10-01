@@ -1,0 +1,21 @@
+level 4 to 5: https://overthewire.org/wargames/bandit/bandit5.html   only human readable file
+how i did:
+find . | xargs file 
+then cat the fie with ascii text
+
+level 5 to 6: https://david-varghese.medium.com/overthewire-bandit-level-5-level-6-aa853b431c1d
+find is awesome
+you can do -not expression eg: -not -executable
+
+6 to 7: pipe errors to /dev/null to get rid of errors!
+find . -group bandit6 -user bandit7 -size 33c 2> /dev/null
+
+9 to 9:  cat data.txt | sort | uniq -c | grep "1 
+
+9 to 10: strings command is used to cat out all the printable strings in an object file or binary
+
+bandit 11 , entry pwd: 6zPeziLdR2RKNdNYFNb6nVCKzphlXHBM
+ ssh bandit11@bandit.labs.overthewire.org -p 2220
+
+
+
