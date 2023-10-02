@@ -16,6 +16,18 @@ find . -group bandit6 -user bandit7 -size 33c 2> /dev/null
 
 bandit 11 , entry pwd: 6zPeziLdR2RKNdNYFNb6nVCKzphlXHBM
  ssh bandit11@bandit.labs.overthewire.org -p 2220
+tr command is awesome:
+tr 'search match' 'replacal/substition'
+just think about rot13 : a should be matched with n, b with o etc..
+
+12-13
+tar -xf file
+gzip -d file.gz
+bzip2 -d file.bz
+xxd -r hexdump
+
+13-14:
+ssh -i privatekeyfile username@localhost
 
 
 
