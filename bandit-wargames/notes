@@ -20,7 +20,11 @@ tr command is awesome:
 tr 'search match' 'replacal/substition'
 just think about rot13 : a should be matched with n, b with o etc..
 
+11-12
+pwd: JVNBBFSmZwKKOP0XbFXOoW8chDz5yVRv
+
 12-13
+wbWdlBxEir4CaE8LaPhauuOo6pwRmrDw
 tar -xf file
 gzip -d file.gz
 bzip2 -d file.bz
@@ -28,6 +32,11 @@ xxd -r hexdump
 
 13-14:
 ssh -i privatekeyfile username@localhost
+pwd fGrHPx402xGC7U7rXKDaxiWFTOiF0ENq
 
+14-15
+netcat ftw
+jN2kgmIXJ6fShzhT2avhotn4Zcka6tnt
 
+15-16
 
