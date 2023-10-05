@@ -11,7 +11,7 @@ charging=$(cat /sys/class/power_supply/BAT0/status /sys/class/power_supply/BAT1/
 
 echo "$battery_level" "$charging"
 
-if [[ "$battery_level" -gt 85 && "$charging" == "true" ]] ; then
+if [[ "$battery_level" -gt 82 && "$charging" == "true" ]] ; then
   notify-send -u normal "Battery at $battery_level%." "Would be a good idea to unplug charger?"
   exit 0
 fi
