@@ -78,7 +78,8 @@ def display_lyrics(segment):
     """Display the lyrics segment, replacing the previously printed line."""
     # Construct the lyric line with a carriage return at the beginning
     lyric_line = f'{segment["text"]}'
-    print('\x1b[2K',lyric_line, end='\r')
+    # print('\x1b[2K',lyric_line, end='\r')
+    print(lyric_line)
 
 def main():
     try:
@@ -114,14 +115,14 @@ def main():
 
             # Check the current timestamp and display corresponding lyrics
             for segment in segments:
-                if segment['start'] - 0.5 <= position_sec <= segment['end']:
+                if segment['start'] <= position_sec <= segment['end']:
                     curr_text = segment['text']
                     if prev_text != curr_text:
                         display_lyrics(segment)
                         prev_text = curr_text
 
             # Wait for 1 second
-            time.sleep(1)
+            time.sleep(0.5)
         except:
             time.sleep(0.5)
     time.sleep(1)
