@@ -5,7 +5,7 @@
 token=$(getEnv.sh "SUPABASE_DB_PASSWORD")
 clipmanCacheFile="/home/aldrin/.cache/xfce4/clipman/textsrc"
 echo $token
-echo "$token" | xclip -sel clip && notify-send "Token copied" "Github access token copied to clipboard for 2 seconds"
+echo "$token" | xclip -sel clip && notify-send "Token copied" "Supabase db password copied to clipboard for 2 seconds"
 # sleep 5
 # sed -i 's/;ghp_\S*;$/;/g' $clipmanCacheFile # To not show the token in clipman
 # killall xfce4-clipman && xfce4-clipman &    # Changes will be visible only if clipman is restarted
