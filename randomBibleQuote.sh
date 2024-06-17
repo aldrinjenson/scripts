@@ -1,4 +1,4 @@
-# !/bin/sh
+#!/bin/sh
 # Script to generate random quote from all over the bible
 # Created on 16/8/21
 
