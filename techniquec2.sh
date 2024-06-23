@@ -7,4 +7,4 @@ echo $techniqueSshCmd
 
 # ssh -X -o ServerAliveInterval=600 "$username"@"$url" 
 # ssh -X "$(techniqueSshCmd)"
-$techniqueSshCmd
+$($techniqueSshCmd)
